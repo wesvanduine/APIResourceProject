@@ -5,6 +5,7 @@ var prosperentAPI = "&api_key=db887efc5e1ffd195515b629ff717349";
 function itemSearch() {
 
 		event.preventDefault();
+		$("#item-results").empty();
         var item = $("#searchBar").val().trim();
         var queryURL = "http://api.prosperent.com/api/search?query="+ item + prosperentAPI;
         console.log(queryURL);
