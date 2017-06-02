@@ -13,8 +13,14 @@ strong {
 }
 
 .hero-spacer {
-    margin-top: 50px;
+    margin-top: 10px;
+    background-image: url('http://www.hdfondos.eu/pictures/2014/0110/1/mac-gadgets-on-a-desk-pics-369694.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
+p {
+	color:black;
 }
 
 .hero-feature {
@@ -32,6 +38,13 @@ footer {
 
 h1 {
 	text-align: center;
+}
+
+.btn-large {
+    display: block;
+    width: 105px;
+    margin: auto;
+
 }
 
 .shoppingCart {
