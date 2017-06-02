@@ -24,3 +24,30 @@ footer {
     min-height: 133px;
     overflow: hidden;
 }
+
+.shoppingCart {
+	display:block;
+	float:right;
+	margin-right: 100px;
+	color: #9d9d9d;
+	font-size: 18px;
+	line-height: 20px;
+	margin-top: 15px;
+}
+#counter{
+	display:block;
+	float:right;
+	color: #9d9d9d;
+	height: 7px;
+	width: 10px;
+	margin-right: 7px;
+	font-size: 18px;
+	line-height: 1px;
+	 margin-top: 14px;
+	 margin-left: 5px; 
+}
+
+
+
+
+
