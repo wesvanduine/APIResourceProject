@@ -22,30 +22,13 @@ function itemSearch() {
 
             console.log(results);
 
-           	for (var i = 0; i < results.length; i++) {
+           	for (var i = 0; i < 8; i++) {
 
                 var itemDiv = $("<div>");
                 itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
                 itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" 
                 + results[i].keyword + "</h3>" + "<p><a href='#' class='btn btn-primary'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
                 $("#item-results").append(itemDiv);
-
-
-            // <div class="col-md-3 col-sm-6 hero-feature">
-
-
-            //     <div class="thumbnail">
-            //         <img src="http://placehold.it/800x500" alt="">
-            //         <div class="caption">
-            //             <h3>Product 01</h3>
-            //             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            //             <p>
-            //                 <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-            //             </p>
-            //         </div>
-            //     </div>
-            // </div>
-
             }
 
         }); //End of ajax function
