@@ -33,6 +33,11 @@ footer {
 	font-size: 18px;
 	line-height: 20px;
 	margin-top: 15px;
+	cursor: pointer;
+}
+
+.shoppingCart:hover{
+	color: #bababa;
 }
 #counter{
 	display:block;
@@ -46,6 +51,7 @@ footer {
 	 margin-top: 14px;
 	 margin-left: 5px; 
 }
+
 
 
 
