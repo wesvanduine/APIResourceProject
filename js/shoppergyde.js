@@ -58,32 +58,29 @@ function itemSearch() {
 
         console.log(results);
 
-        for (var i = 0; i < results.length; i++) {
 
 
-           	for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 8; i++) {
 
-                var itemDiv = $("<div>");
-                itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
-                itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" 
-                + results[i].keyword + "</h3>" + "<p><a href='#' class='btn btn-primary'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
-                $("#item-results").append(itemDiv);
-            }
-
+            var itemDiv = $("<div>");
+            itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
+            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" 
+            + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
+            $("#item-results").append(itemDiv);   
 
         };
-        //function when "Buy now!" is clicked add 1 to shopping cart counter(TODO)
-        var count = 0;
-        $("#buyButton").click(function() {
-            count++;
-            console.log(count);
-            $("#counter").html(count);
-        });
-
     }); //End of ajax function
-
-
 } //End of itemSearch function
 
+        
+var count = 0;
 
-$(document).on("click", "#searchBtn", itemSearch);
+//function when "Buy now!" is clicked add 1 to shopping cart counter(TODO)
+function addToCart() {
+	count++;
+	console.log(count);
+	$("#counter").text(count);
+}
+
+$(document.body).on("click", "#searchBtn", itemSearch);
+$(document.body).on("click", ".buyButton", addToCart);
