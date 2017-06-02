@@ -48,10 +48,13 @@ footer {
 	margin-right: 7px;
 	font-size: 18px;
 	line-height: 1px;
-	 margin-top: 14px;
-	 margin-left: 5px; 
+	 margin-top: 12px;
+	 margin-left: 2px; 
 }
 
+.dropdown {
+	float:right;
+}
 
 
 

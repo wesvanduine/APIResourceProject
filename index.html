@@ -22,7 +22,6 @@
     <![endif]-->
     <!-- FireBase -->
     <script src="https://www.gstatic.com/firebasejs/4.1.0/firebase.js"></script>
-    
 </head>
 
 <body>
@@ -42,23 +41,22 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-                <!-- shopping cart icon -->
-                <a class="shoppingCart">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">Cart:</span>
-                    <!-- shopping cart count -->
-                    <div id="counter">0</div>
-                </a>
+                <!--  dropdown menu -->
+                <div class="dropdown shoppingCart">
+                    <a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <!-- shopping cart icon -->
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">Cart:</span>
+                        <!-- shopping cart count -->
+                        <div id="counter">0</div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -80,17 +78,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Choose a User Name</h4>
+                        <h4 class="modal-title" id="myModalLabel">Choose a User Name and password</h4>
                     </div>
                     <div class="modal-body">
                         <br>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="userName">
                         </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1" id="password">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveButton">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" class="saveButton">Save changes</button>
                     </div>
                 </div>
             </div>

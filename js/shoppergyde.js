@@ -14,21 +14,24 @@ var database = firebase.database();
 
 var user = "";
 
+var password = "";
+
+
 $("#saveButton").on("click", function(event) {
     event.preventDefault();
 
     //variable to hold input from user
     user = $("#userName").val().trim();
 
-    //check username hasn't been taken(TODO)
-    
+    password = $("#password").val().trim();
+
 
     //pushing the data inputed to firbase 
     database.ref().push({
         user: user,
+        password: password
     });
 
-    $("#userName").val('');
 
 });
 
@@ -64,23 +67,23 @@ function itemSearch() {
 
             var itemDiv = $("<div>");
             itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
-            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" 
-            + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
-            $("#item-results").append(itemDiv);   
+            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
+            $("#item-results").append(itemDiv);
 
         };
     }); //End of ajax function
 } //End of itemSearch function
 
-        
+
 var count = 0;
 
 //function when "Buy now!" is clicked add 1 to shopping cart counter(TODO)
 function addToCart() {
-	count++;
-	console.log(count);
-	$("#counter").text(count);
+    count++;
+    console.log(count);
+    $("#counter").text(count);
 }
 
 $(document.body).on("click", "#searchBtn", itemSearch);
 $(document.body).on("click", ".buyButton", addToCart);
+
