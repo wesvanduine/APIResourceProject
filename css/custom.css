@@ -8,8 +8,13 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+strong {
+	color: #DF0505;
+}
+
 .hero-spacer {
     margin-top: 50px;
+
 }
 
 .hero-feature {
@@ -23,6 +28,10 @@ footer {
 	height: 133px;
     min-height: 133px;
     overflow: hidden;
+}
+
+h1 {
+	text-align: center;
 }
 
 .shoppingCart {

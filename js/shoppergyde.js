@@ -22,16 +22,18 @@ $("#saveButton").on("click", function(event) {
 
     //variable to hold input from user
     user = $("#userName").val().trim();
+    console.log(user);
 
-    password = $("#password").val().trim();
-
-
+    password = $("#passWord").val().trim();
+    console.log(password);
     //pushing the data inputed to firbase 
     database.ref().push({
         user: user,
-        password: password
+        password: password,
     });
 
+    $("#userName").val('');
+    $("#passWord").val('');
 
 });
 

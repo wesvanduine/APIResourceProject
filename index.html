@@ -66,9 +66,9 @@
     <div class="container">
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>A Warm Welcome!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <p><a class="btn btn-primary btn-large" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch Modal Form</a>
+            <h1>Welcome to ShopperGyde!</h1>
+            <p>Your one stop shop for the best online deals. Simply sign up by choosing a user name and password, or if you already have one simply log in. Type in a search for anything your are looking to buy. Our state of the art search query will scour the web and find you the best deals around. Click below to get started. </p>
+            <p><a class="btn btn-primary btn-large" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Join | Sign In</a>
             </p>
         </header>
         <hr>
@@ -78,7 +78,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Choose a User Name and password</h4>
+                        <h4 class="modal-title" id="myModalLabel">Welcome! Please sign in or sign up with a new user name and password</h4>
                     </div>
                     <div class="modal-body">
                         <br>
@@ -86,12 +86,12 @@
                             <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="userName">
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1" id="password">
+                            <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1" id="passWord">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" class="saveButton">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveButton">Submit</button>
                     </div>
                 </div>
             </div>
@@ -100,16 +100,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Search Form</h3>
-                    </div>
                     <div class="panel-body">
                         <form>
                             <div class="form-group">
-                                <label for="searchBar">Enter your product keyword to search:</label>
+                                <label for="searchBar">What are you looking for today?</label>
                                 <input type="text" class="form-control" id="searchBar" placeholder="Search">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="searchBtn">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="searchBtn">Lets Find It!</button>
                         </form>
                     </div>
                 </div>
