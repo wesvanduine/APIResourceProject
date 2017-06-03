@@ -11,8 +11,8 @@ firebase.initializeApp(config);
 
 //Referencing the database
 var database = firebase.database();
-
 var user = "";
+var password = "";
 
 $("#saveButton").on("click", function(event) {
     event.preventDefault();
@@ -20,10 +20,7 @@ $("#saveButton").on("click", function(event) {
     //variable to hold input from user
     username = $("#userName").val().trim();
     // password = $("")
-
-    //check username hasn't been taken(TODO)
-    
-
+    password = $("#passWord").val().trim();
     //pushing the data inputed to firbase 
     database.ref("login_accounts").push({
         username: username
@@ -31,6 +28,7 @@ $("#saveButton").on("click", function(event) {
     });
 
     $("#userName").val('');
+    $("#passWord").val('');
 
 });
 
@@ -70,6 +68,7 @@ function itemSearch() {
     }); //End of ajax function
 } //End of itemSearch function
 
+
 /////////////////////////////////////////////////////////////////////
 //                       	 Shopping Cart                         //
 /////////////////////////////////////////////////////////////////////
@@ -83,7 +82,6 @@ function addToCart() {
 	console.log(results[itemRef]);
 	console.log(shoppingCart.length);
 	$("#counter").text(shoppingCart.length);
-
 }
 
 /////////////////////////////////////////////////////////////////////

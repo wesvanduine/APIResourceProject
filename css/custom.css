@@ -8,8 +8,19 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+strong {
+	color: #DF0505;
+}
+
 .hero-spacer {
-    margin-top: 50px;
+    margin-top: 10px;
+    background-image: url('http://www.hdfondos.eu/pictures/2014/0110/1/mac-gadgets-on-a-desk-pics-369694.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+p {
+	color:black;
 }
 
 .hero-feature {
@@ -25,6 +36,17 @@ footer {
     overflow: hidden;
 }
 
+h1 {
+	text-align: center;
+}
+
+.btn-large {
+    display: block;
+    width: 105px;
+    margin: auto;
+
+}
+
 .shoppingCart {
 	display:block;
 	float:right;
@@ -33,6 +55,11 @@ footer {
 	font-size: 18px;
 	line-height: 20px;
 	margin-top: 15px;
+	cursor: pointer;
+}
+
+.shoppingCart:hover{
+	color: #bababa;
 }
 #counter{
 	display:block;
@@ -43,8 +70,12 @@ footer {
 	margin-right: 7px;
 	font-size: 18px;
 	line-height: 1px;
-	 margin-top: 14px;
-	 margin-left: 5px; 
+	 margin-top: 12px;
+	 margin-left: 2px; 
+}
+
+.dropdown {
+	float:right;
 }
 
 
