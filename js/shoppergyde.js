@@ -1,4 +1,6 @@
-// Initialize Firebase
+/////////////////////////////////////////////////////////////////////
+//                     Initialize Firebase                         //
+/////////////////////////////////////////////////////////////////////
 var config = {
     apiKey: "AIzaSyD73nDQiEU00dixAi656Z2_ahiGABH23vs",
     authDomain: "api-research-project.firebaseapp.com",
@@ -8,43 +10,61 @@ var config = {
     messagingSenderId: "335807176416"
 };
 firebase.initializeApp(config);
-
-//Referencing the database
+var auth = firebase.auth();
 var database = firebase.database();
-var user = "";
-var password = "";
 
-$("#saveButton").on("click", function(event) {
+/////////////////////////////////////////////////////////////////////
+//                        Create New User                          //
+/////////////////////////////////////////////////////////////////////
+
+function createUser() {
     event.preventDefault();
+    var email = "";
+	var password = "";
 
-    //variable to hold input from user
-    username = $("#userName").val().trim();
-    // password = $("")
-    password = $("#passWord").val().trim();
-    //pushing the data inputed to firbase 
-    // database.ref("users").set({
-    //     username: username,
-    // });
-var usersRef = firebase.database().ref('users');
-var usersRefUser = firebase.database().ref('users/'+username);
-usersRefUser.child('password').set(password);
+    email = $("#createUserName").val().trim();
+    password = $("#createPassword").val().trim();
 
-// adaNameRef.child('first').set('Ada');
-// adaNameRef.child('last').set('Lovelace');
+	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+  		var errorCode = error.code;
+  		var errorMessage = error.message;
+	});
+
+    $("#createUserNam").val('');
+    $("#createPassword").val('');
+
+}
+
+/////////////////////////////////////////////////////////////////////
+//                           Sign In User                          //
+/////////////////////////////////////////////////////////////////////
+
+function loginUser() {
+    event.preventDefault();
+    var email = "";
+	var password = "";
+
+    email = $("#userName").val().trim();
+    password = $("#password").val().trim();
+
+	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+  		var errorCode = error.code;
+  		var errorMessage = error.message;
+	});
 
     $("#userName").val('');
-    $("#passWord").val('');
+    $("#password").val('');
 
-});
+}
 
-var prosperentAPI = "&api_key=db887efc5e1ffd195515b629ff717349";
-var response;
-
-// http://api.prosperent.com/api/search?query=mens+running+shoes&api_key=2faab4bcbd4ed51fd1706a7ee940bfe0  
+/////////////////////////////////////////////////////////////////////
+//                         Search Function                         //
+/////////////////////////////////////////////////////////////////////
 
 function itemSearch() {
-
     event.preventDefault();
+    var prosperentAPI = "&api_key=db887efc5e1ffd195515b629ff717349";
+	var response;
     $("#item-results").empty();
     var item = encodeURI($("#searchBar").val().trim());
     console.log(item);
@@ -70,9 +90,8 @@ function itemSearch() {
             + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton' result='"+i+"'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
             $("#item-results").append(itemDiv);    
         };
-    }); //End of ajax function
-} //End of itemSearch function
-
+    });
+}
 
 /////////////////////////////////////////////////////////////////////
 //                       	 Shopping Cart                         //
@@ -80,7 +99,6 @@ function itemSearch() {
 
 var shoppingCart = [];
 
-//function when "Buy now!" is clicked add 1 to shopping cart counter(TODO)
 function addToCart() {
 	var itemRef = $(this).attr("result");
 	shoppingCart.push(results[itemRef]);
@@ -96,5 +114,7 @@ function addToCart() {
 //                       	 On-click Events                       //
 /////////////////////////////////////////////////////////////////////
 
+$(document.body).on("click", "#saveButton", createUser);
+$(document.body).on("click", "#signInButton", loginUser);
 $(document.body).on("click", "#searchBtn", itemSearch);
 $(document.body).on("click", ".buyButton", addToCart);
