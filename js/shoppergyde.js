@@ -22,10 +22,15 @@ $("#saveButton").on("click", function(event) {
     // password = $("")
     password = $("#passWord").val().trim();
     //pushing the data inputed to firbase 
-    database.ref("login_accounts").push({
-        username: username
-        // username.password: "test"
-    });
+    // database.ref("users").set({
+    //     username: username,
+    // });
+var usersRef = firebase.database().ref('users');
+var usersRefUser = firebase.database().ref('users/'+username);
+usersRefUser.child('password').set(password);
+
+// adaNameRef.child('first').set('Ada');
+// adaNameRef.child('last').set('Lovelace');
 
     $("#userName").val('');
     $("#passWord").val('');
@@ -82,6 +87,9 @@ function addToCart() {
 	console.log(results[itemRef]);
 	console.log(shoppingCart.length);
 	$("#counter").text(shoppingCart.length);
+	var a = $("<li>");
+	a.html("<a href='#'><img style='width:50px;height:50px;'src='"+shoppingCart[shoppingCart.length-1].image_url+"'><span>"+shoppingCart[shoppingCart.length-1].keyword+" "+shoppingCart[shoppingCart.length-1].price+"</span></a>");
+	$("#cart").prepend(a);
 }
 
 /////////////////////////////////////////////////////////////////////

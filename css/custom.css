@@ -36,16 +36,41 @@ footer {
     overflow: hidden;
 }
 
-h1 {
+.jumbotron h1 {
 	text-align: center;
+	color: #fff;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
 }
 
+.jumbotron p {
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+	font-weight: 400;	
+}
 .btn-large {
     display: block;
     width: 105px;
     margin: auto;
 
 }
+
+/*==== Modal Popup Fixes ==*/
+.modal-body .input-group {
+	margin-bottom: 6px;
+}
+
+@media (min-width: 319px) {
+
+	.modal-dialog {
+	    width: 400px;
+	    margin: 30px auto;
+	}
+	.modal-body .input-group {
+		width: 100%;
+	}
+}
+
+
 
 .shoppingCart {
 	display:block;
@@ -54,7 +79,6 @@ h1 {
 	color: #9d9d9d;
 	font-size: 18px;
 	line-height: 20px;
-	margin-top: 15px;
 	cursor: pointer;
 }
 
@@ -77,8 +101,5 @@ h1 {
 .dropdown {
 	float:right;
 }
-
-
-
 
 
