@@ -48,10 +48,8 @@ footer {
 	font-weight: 400;	
 }
 .btn-large {
-    display: block;
     width: 105px;
     margin: auto;
-
 }
 
 /*==== Modal Popup Fixes ==*/
@@ -101,5 +99,3 @@ footer {
 .dropdown {
 	float:right;
 }
-
-
