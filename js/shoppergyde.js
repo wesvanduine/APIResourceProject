@@ -12,11 +12,9 @@ var config = {
 firebase.initializeApp(config);
 var auth = firebase.auth();
 var database = firebase.database();
-
 /////////////////////////////////////////////////////////////////////
 //                        Create New User                          //
 /////////////////////////////////////////////////////////////////////
-
 function createUser() {
     event.preventDefault();
     var email = "";
@@ -34,11 +32,9 @@ function createUser() {
     $("#createPassword").val('');
 
 }
-
 /////////////////////////////////////////////////////////////////////
 //                           Sign In User                          //
 /////////////////////////////////////////////////////////////////////
-
 function loginUser() {
     event.preventDefault();
     var email = "";
@@ -47,19 +43,26 @@ function loginUser() {
     email = $("#userName").val().trim();
     password = $("#password").val().trim();
 
+
     auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
     });
 
+	auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+  		var errorCode = error.code;
+  		var errorMessage = error.message;
+	});
+
+
     $("#userName").val('');
     $("#password").val('');
-
+    
 }
-
 /////////////////////////////////////////////////////////////////////
 //                         Search Function                         //
 /////////////////////////////////////////////////////////////////////
+var results;
 
 function itemSearch() {
     event.preventDefault();
@@ -67,9 +70,10 @@ function itemSearch() {
     var response;
     $("#item-results").empty();
     var item = encodeURI($("#searchBar").val().trim());
-    console.log(item);
     var queryURL = "http://api.prosperent.com/api/search?query=" + item + prosperentAPI;
     console.log(queryURL);
+
+    // http://api.prosperent.com/api/search?filterCatalogId=0faa41508c3ea886fe17a09d72282014&api_key=3bc59e40ce2f493b5619df9e9afbfb82
 
     $.ajax({
         url: queryURL,
@@ -77,13 +81,9 @@ function itemSearch() {
         dataType: "jsonp"
     }).done(function(response) {
 
-        console.log(response);
-
         results = response.data;
 
-        console.log(results);
-
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < results.length; i++) {
             var itemDiv = $("<div>");
             itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
             itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton' result='" + i + "'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
@@ -91,14 +91,14 @@ function itemSearch() {
         };
     });
 }
-
 /////////////////////////////////////////////////////////////////////
 //                           Shopping Cart                         //
 /////////////////////////////////////////////////////////////////////
-
 var shoppingCart = [];
+var testUser = 'Philtestuser';
 
 function addToCart() {
+
     var itemRef = $(this).attr("result");
     shoppingCart.push(results[itemRef]);
     console.log(results[itemRef]);
@@ -108,16 +108,96 @@ function addToCart() {
     a.html("<a href='#'><img style='width:50px;height:50px;'src='" + shoppingCart[shoppingCart.length - 1].image_url + "'><span>" + shoppingCart[shoppingCart.length - 1].keyword + " " + shoppingCart[shoppingCart.length - 1].price + "</span></a>");
     $("#cart").prepend(a);
 }
-
 /////////////////////////////////////////////////////////////////////
 //                           On-click Events                       //
 /////////////////////////////////////////////////////////////////////
-
 $(document.body).on("click", "#saveButton", createUser);
 $(document.body).on("click", "#signInButton", loginUser);
+
 $("#searchBar").keypress(function(e) {
     if (e.which == 13) {
         itemSearch();
     }
 });
+/*$(document.body).on("click", ".buyButton", addToCart);*/
 $(document.body).on("click", ".buyButton", addToCart);
+/////////////////////////////////////////////////////////////////////
+//                       	 Form Validation                       //
+/////////////////////////////////////////////////////////////////////
+$( document ).ready( function () {
+    $( "#newAccountForm" ).validate( {
+        rules: {
+            password: {
+                required: true,
+                minlength: 5
+            },
+            email: {
+                required: true,
+                email: true
+            },
+                },
+            messages: {
+            	password: {
+	                required: "Please provide a password",
+	                minlength: "Your password must be at least 5 characters long"
+                },
+                email: "Please enter a valid email address"
+            },
+            errorElement: "em",
+            errorPlacement: function ( error, element ) {
+            	// Add the `help-block` class to the error element
+                error.addClass( "help-block" );
+				if ( element.prop( "type" ) === "checkbox" ) {
+                    error.insertAfter( element.parent( "label" ) );
+                } else {
+                    error.insertAfter( element );
+                }
+            },
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".input-group" ).addClass( "has-error" ).removeClass( "has-success" );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents( ".input-group" ).addClass( "has-success" ).removeClass( "has-error" );
+            }
+    } );
+} );
+
+$( document ).ready( function () {
+    $( "#currentAccountForm" ).validate( {
+        rules: {
+            password: {
+                required: true,
+                minlength: 5
+            },
+            email: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "help-block" );
+
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).parents( ".input-group" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $( element ).parents( ".input-group" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+    } );
+} );
+
