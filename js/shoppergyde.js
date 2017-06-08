@@ -20,15 +20,15 @@ var database = firebase.database();
 function createUser() {
     event.preventDefault();
     var email = "";
-	var password = "";
+    var password = "";
 
     email = $("#createUserName").val().trim();
     password = $("#createPassword").val().trim();
 
-	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-  		var errorCode = error.code;
-  		var errorMessage = error.message;
-	});
+    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
 
     $("#createUserNam").val('');
     $("#createPassword").val('');
@@ -42,15 +42,15 @@ function createUser() {
 function loginUser() {
     event.preventDefault();
     var email = "";
-	var password = "";
+    var password = "";
 
     email = $("#userName").val().trim();
     password = $("#password").val().trim();
 
-	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-  		var errorCode = error.code;
-  		var errorMessage = error.message;
-	});
+    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
 
     $("#userName").val('');
     $("#password").val('');
@@ -64,7 +64,7 @@ function loginUser() {
 function itemSearch() {
     event.preventDefault();
     var prosperentAPI = "&api_key=db887efc5e1ffd195515b629ff717349";
-	var response;
+    var response;
     $("#item-results").empty();
     var item = encodeURI($("#searchBar").val().trim());
     console.log(item);
@@ -86,35 +86,38 @@ function itemSearch() {
         for (var i = 0; i < 8; i++) {
             var itemDiv = $("<div>");
             itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
-            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" 
-            + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton' result='"+i+"'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
-            $("#item-results").append(itemDiv);    
+            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton' result='" + i + "'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
+            $("#item-results").append(itemDiv);
         };
     });
 }
 
 /////////////////////////////////////////////////////////////////////
-//                       	 Shopping Cart                         //
+//                           Shopping Cart                         //
 /////////////////////////////////////////////////////////////////////
 
 var shoppingCart = [];
 
 function addToCart() {
-	var itemRef = $(this).attr("result");
-	shoppingCart.push(results[itemRef]);
-	console.log(results[itemRef]);
-	console.log(shoppingCart.length);
-	$("#counter").text(shoppingCart.length);
-	var a = $("<li>");
-	a.html("<a href='#'><img style='width:50px;height:50px;'src='"+shoppingCart[shoppingCart.length-1].image_url+"'><span>"+shoppingCart[shoppingCart.length-1].keyword+" "+shoppingCart[shoppingCart.length-1].price+"</span></a>");
-	$("#cart").prepend(a);
+    var itemRef = $(this).attr("result");
+    shoppingCart.push(results[itemRef]);
+    console.log(results[itemRef]);
+    console.log(shoppingCart.length);
+    $("#counter").text(shoppingCart.length);
+    var a = $("<li>");
+    a.html("<a href='#'><img style='width:50px;height:50px;'src='" + shoppingCart[shoppingCart.length - 1].image_url + "'><span>" + shoppingCart[shoppingCart.length - 1].keyword + " " + shoppingCart[shoppingCart.length - 1].price + "</span></a>");
+    $("#cart").prepend(a);
 }
 
 /////////////////////////////////////////////////////////////////////
-//                       	 On-click Events                       //
+//                           On-click Events                       //
 /////////////////////////////////////////////////////////////////////
 
 $(document.body).on("click", "#saveButton", createUser);
 $(document.body).on("click", "#signInButton", loginUser);
-$(document.body).on("click", "#searchBtn", itemSearch);
+$("#searchBar").keypress(function(e) {
+    if (e.which == 13) {
+        itemSearch();
+    }
+});
 $(document.body).on("click", ".buyButton", addToCart);

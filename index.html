@@ -27,29 +27,26 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <!-- Brand and left side of nav -->
-          <a class="navbar-brand" href="#"><strong>ShopperGyde</strong></a>
-          
-          <!-- right side of nav -->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown shoppingCart">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
-              <!-- shopping cart icon -->
-              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">Cart:</span>
-              <!-- shopping cart count -->
-              <div id="counter">0</div>
-
-              </a>
-              <ul class="dropdown-menu" id="cart">
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-
-      </div><!-- /.container-fluid -->
+        <div class="container">
+            <!-- Brand and left side of nav -->
+            <a class="navbar-brand" href="#"><strong>ShopperGyde</strong></a>
+            <!-- right side of nav -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown shoppingCart">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <!-- shopping cart icon -->
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">Cart:</span>
+                        <!-- shopping cart count -->
+                        <div id="counter">0</div>
+                    </a>
+                    <ul class="dropdown-menu" id="cart">
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.container-fluid -->
     </nav>
     <!-- Page Content -->
     <div class="container">
@@ -88,23 +85,22 @@
         <!-- Search Form -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="searchBar">What are you looking for today?</label>
-                                <input type="text" class="form-control" id="searchBar" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="searchBtn">Lets Find It!</button>
-                        </form>
-                    </div>
+                <!-- <div class="panel panel-default"> -->
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <!-- Search Bar -->
+                            <input type="text" class="form-control" id="searchBar" placeholder="Search ShopperGyde">
+                        </div>
+                    </form>
                 </div>
+                <!-- </div> -->
             </div>
         </div>
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-                <h3>Results from Look-up Request</h3>
+                <h3>Results</h3>
             </div>
         </div>
         <!-- /.row -->

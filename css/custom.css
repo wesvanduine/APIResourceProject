@@ -102,4 +102,26 @@ footer {
 	float:right;
 }
 
+label {
+	display: block;
+	text-align: center;
+	font-size: 30px;
+	font-family: inherit;
+}
 
+.btn-primary {
+	display: block;
+	margin: auto;
+	width: ;
+}
+
+/* Search Bar */
+.form-control {
+	width: 50%;
+	margin: auto;
+	height: 60px;
+	border: 5px solid #ccc;
+	border-radius: 25px;
+	font-size: 30px;
+    color: black;
+}
