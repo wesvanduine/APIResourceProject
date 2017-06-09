@@ -70,7 +70,7 @@ function itemSearch() {
     var response;
     $("#item-results").empty();
     var item = encodeURI($("#searchBar").val().trim());
-    var queryURL = "http://api.prosperent.com/api/search?query=" + item + prosperentAPI;
+    var queryURL = "http://api.prosperent.com/api/search?query=" + item + prosperentAPI+"&relevancyThreshold=1.0&limit=100";
     console.log(queryURL);
 
     // http://api.prosperent.com/api/search?filterCatalogId=0faa41508c3ea886fe17a09d72282014&api_key=3bc59e40ce2f493b5619df9e9afbfb82
@@ -86,16 +86,29 @@ function itemSearch() {
         for (var i = 0; i < results.length; i++) {
             var itemDiv = $("<div>");
             itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
-            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" + results[i].keyword + "</h3>" + "<p><a class='btn btn-primary buyButton' result='" + i + "'>Buy Now!</a> <a href='#' class='btn btn-default'>More Info</a></p></div></div>");
+            itemDiv.html("<div class='thumbnail'><img src='" + results[i].image_url + "'><div class='caption'><h3>" + results[i].keyword + "</h3><h4>$"+results[i].price + "</h4><p><a class='btn btn-primary buyButton' result='" + i + "'>Buy Now!</a> <a href='#' class='btn btn-default' data-toggle='modal' data-target='#"+i+"'>More Info</a></p></div></div>");
             $("#item-results").append(itemDiv);
         };
     });
 }
 /////////////////////////////////////////////////////////////////////
+//                             More Info                           //
+/////////////////////////////////////////////////////////////////////
+function moreInfo() {
+
+    var itemRef = $(this).attr("result");
+    shoppingCart.push(results[itemRef]);
+    console.log(results[itemRef]);
+    console.log(shoppingCart.length);
+    $("#counter").text(shoppingCart.length);
+    var a = $("<li>");
+    a.html("<a href='#'><img style='width:50px;height:50px;'src='" + shoppingCart[shoppingCart.length - 1].image_url + "'><span>" + shoppingCart[shoppingCart.length - 1].keyword + " " + shoppingCart[shoppingCart.length - 1].price + "</span></a>");
+    $("#cart").prepend(a);
+}
+/////////////////////////////////////////////////////////////////////
 //                           Shopping Cart                         //
 /////////////////////////////////////////////////////////////////////
 var shoppingCart = [];
-var testUser = 'Philtestuser';
 
 function addToCart() {
 
@@ -121,6 +134,16 @@ $("#searchBar").keypress(function(e) {
 });
 /*$(document.body).on("click", ".buyButton", addToCart);*/
 $(document.body).on("click", ".buyButton", addToCart);
+
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    $("#userName").html("Signed In")
+  } else {
+    // No user is signed in.
+    $("#userName").html("Not Signed In")
+  }
+});
 /////////////////////////////////////////////////////////////////////
 //                       	 Form Validation                       //
 /////////////////////////////////////////////////////////////////////
@@ -200,4 +223,3 @@ $( document ).ready( function () {
         }
     } );
 } );
-
