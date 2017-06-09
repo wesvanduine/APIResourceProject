@@ -19,18 +19,14 @@ function createUser() {
     event.preventDefault();
     var email = "";
     var password = "";
-
     email = $("#createUserName").val().trim();
     password = $("#createPassword").val().trim();
-
     auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
     });
-
     $("#createUserNam").val('');
     $("#createPassword").val('');
-
 }
 /////////////////////////////////////////////////////////////////////
 //                           Sign In User                          //
@@ -39,22 +35,16 @@ function loginUser() {
     event.preventDefault();
     var email = "";
     var password = "";
-
     email = $("#userName").val().trim();
     password = $("#password").val().trim();
-
-
     auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
     });
-
-	auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-  		var errorCode = error.code;
-  		var errorMessage = error.message;
-	});
-
-
+    auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
     $("#userName").val('');
     $("#password").val('');
     
@@ -63,7 +53,6 @@ function loginUser() {
 //                         Search Function                         //
 /////////////////////////////////////////////////////////////////////
 var results;
-
 function itemSearch() {
     event.preventDefault();
     var prosperentAPI = "&api_key=db887efc5e1ffd195515b629ff717349";
@@ -72,17 +61,13 @@ function itemSearch() {
     var item = encodeURI($("#searchBar").val().trim());
     var queryURL = "http://api.prosperent.com/api/search?query=" + item + prosperentAPI+"&relevancyThreshold=1.0&limit=100";
     console.log(queryURL);
-
     // http://api.prosperent.com/api/search?filterCatalogId=0faa41508c3ea886fe17a09d72282014&api_key=3bc59e40ce2f493b5619df9e9afbfb82
-
     $.ajax({
         url: queryURL,
         method: "GET",
         dataType: "jsonp"
     }).done(function(response) {
-
         results = response.data;
-
         for (var i = 0; i < results.length; i++) {
             var itemDiv = $("<div>");
             itemDiv.addClass("col-md-3", "col-sm-6", "hero-feature");
@@ -95,7 +80,6 @@ function itemSearch() {
 //                             More Info                           //
 /////////////////////////////////////////////////////////////////////
 function moreInfo() {
-
     var itemRef = $(this).attr("result");
     shoppingCart.push(results[itemRef]);
     console.log(results[itemRef]);
@@ -111,7 +95,6 @@ function moreInfo() {
 var shoppingCart = [];
 
 function addToCart() {
-
     var itemRef = $(this).attr("result");
     shoppingCart.push(results[itemRef]);
     console.log(results[itemRef]);
@@ -126,7 +109,6 @@ function addToCart() {
 /////////////////////////////////////////////////////////////////////
 $(document.body).on("click", "#saveButton", createUser);
 $(document.body).on("click", "#signInButton", loginUser);
-
 $("#searchBar").keypress(function(e) {
     if (e.which == 13) {
         itemSearch();
@@ -145,7 +127,7 @@ auth.onAuthStateChanged(function(user) {
   }
 });
 /////////////////////////////////////////////////////////////////////
-//                       	 Form Validation                       //
+//                           Form Validation                       //
 /////////////////////////////////////////////////////////////////////
 $( document ).ready( function () {
     $( "#newAccountForm" ).validate( {
@@ -160,17 +142,17 @@ $( document ).ready( function () {
             },
                 },
             messages: {
-            	password: {
-	                required: "Please provide a password",
-	                minlength: "Your password must be at least 5 characters long"
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
                 },
                 email: "Please enter a valid email address"
             },
             errorElement: "em",
             errorPlacement: function ( error, element ) {
-            	// Add the `help-block` class to the error element
+                // Add the `help-block` class to the error element
                 error.addClass( "help-block" );
-				if ( element.prop( "type" ) === "checkbox" ) {
+                if ( element.prop( "type" ) === "checkbox" ) {
                     error.insertAfter( element.parent( "label" ) );
                 } else {
                     error.insertAfter( element );
@@ -184,7 +166,6 @@ $( document ).ready( function () {
             }
     } );
 } );
-
 $( document ).ready( function () {
     $( "#currentAccountForm" ).validate( {
         rules: {
@@ -208,7 +189,6 @@ $( document ).ready( function () {
         errorPlacement: function ( error, element ) {
             // Add the `help-block` class to the error element
             error.addClass( "help-block" );
-
             if ( element.prop( "type" ) === "checkbox" ) {
                 error.insertAfter( element.parent( "label" ) );
             } else {
