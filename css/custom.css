@@ -72,12 +72,18 @@ footer {
 	.modal-body .input-group {
 		width: 100%;
 	}
+
 }
 
-@media (max-width: 767px) {
+@media only screen and (min-width: 270px) and (max-width: 767px) {
 
 	.dropdown-menu li {
 		max-width: 300px;
+		border-bottom: 1px solid white;
+	}
+	.dropdown-menu li span {
+		max-width: 300px;
+		white-space: normal;
 	}
 	.navbar-brand{
 		clear: both;
