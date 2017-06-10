@@ -144,6 +144,19 @@ label {
 	width: ;
 }
 
+
+.form-control {
+	display: inline;
+	margin: auto;
+}
+
+.form-group {
+	text-align:center;
+}
+
+.glyphicon{
+	font-weight: 2.5em
+}
 /* Search Bar */
 .form-control {
 	width: 50%;
@@ -154,4 +167,6 @@ label {
 	font-size: 30px;
     color: black;
 }
+
+
 
