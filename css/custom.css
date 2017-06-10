@@ -23,18 +23,12 @@ p {
 	color:black;
 }
 
-#userName{
+#userName2{
 	color: #9d9d9d;
 	margin-right: 400px;
     margin-top: 12px;
     margin-bottom: -18px;
     float: right;
-}
-
-#userName2{
-	color: #9d9d9d;
-	margin-right: 75px;
-    margin-top: 16px;
 }
 
 .hero-feature {
@@ -123,7 +117,7 @@ footer {
 	margin-right: 7px;
 	font-size: 18px;
 	line-height: 1px;
-	 margin-top: 12px;
+	 margin-top: 14px;
 	 margin-left: 2px; 
 }
 
@@ -152,10 +146,6 @@ label {
 
 .form-group {
 	text-align:center;
-}
-
-.glyphicon{
-	font-weight: 2.5em
 }
 /* Search Bar */
 .form-control {
