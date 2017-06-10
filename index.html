@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>ShopperGyde</title>
+    <title>ShopperRoulette</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Link to FontAwesome CDN -->
@@ -29,9 +29,9 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and left side of nav -->
-            <a class="navbar-brand" href="#"><strong>ShopperGyde</strong></a>
+            <a class="navbar-brand" href="#"><strong>ShopperRoulette</strong></a>
             <!-- User name -->
-            
+            <div>
                 <div>
                     <div>
                         <!-- right side of nav -->
@@ -50,9 +50,27 @@
                                 <ul class="dropdown-menu" id="cart">
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Checkout</a></li>
+                    <!-- right side of nav -->
+                    <div class="nav navbar-nav navbar-right">
+                        <div id="userName2">
+                            <stong>User Name</stong>
+                        </div>
+                        <ul>
+                            <div>
+                                    <li class="dropdown shoppingCart">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <!-- shopping cart icon -->
+                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">Cart:</span>
+                                            <!-- shopping cart count -->
+                                            <div id="counter">0</div>
+                                        </a>
+                                        <ul class="dropdown-menu" id="cart">
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Checkout</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
-                            </li>
-                        </ul>
+                            </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -61,8 +79,8 @@
     <div class="container">
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h1>Welcome to ShopperGyde!</h1>
-            <p>Your one stop shop for the best online deals. Simply sign up by choosing a user name and password, or if you already have one simply log in. Type in a search for anything your are looking for. Our state of the art search query will scour the web and find you the best deals around. Click below to get started. </p>
+            <h1>Welcome to ShopperRoulette!</h1>
+            <p>Do you feel lucky? If so, you’ve come to the right place. Simply sign up by choosing a user name and password, or if you already have one, simply log in. Type in a search for anything your are looking for. Our state of the art search query will scour the web and find you the best deals around. Good Luck! Search below to get started. </p>
             <div class="row">
                 <div class="col-xs-6 text-right">
                     <a class="btn btn-primary btn-large" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#join">Join</a>
@@ -119,7 +137,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveButton">Submit</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="signInButton">Submit</button>
                     </div>
                 </div>
             </div>
@@ -132,7 +150,7 @@
                     <form>
                         <div class="form-group">
                             <!-- Search Bar -->
-                            <input type="text" class="form-control" id="searchBar" placeholder="Search ShopperGyde">
+                            <input type="text" class="form-control" id="searchBar" placeholder="Search ShopperRoulette">
                         </div>
                     </form>
                 </div>

@@ -23,16 +23,12 @@ p {
 	color:black;
 }
 
-#userName{
-	color: #9d9d9d;
-	margin-right: 75px;
-    margin-top: 16px;
-}
-
 #userName2{
 	color: #9d9d9d;
-	margin-right: 75px;
-    margin-top: 16px;
+	margin-right: 400px;
+    margin-top: 12px;
+    margin-bottom: -18px;
+    float: right;
 }
 
 .hero-feature {
@@ -121,7 +117,7 @@ footer {
 	margin-right: 7px;
 	font-size: 18px;
 	line-height: 1px;
-	 margin-top: 12px;
+	 margin-top: 14px;
 	 margin-left: 2px; 
 }
 
@@ -137,11 +133,20 @@ label {
 }
 
 .btn-primary {
-	display: block;
+	display: inline-block;
 	margin: auto;
 	width: ;
 }
 
+
+.form-control {
+	display: inline;
+	margin: auto;
+}
+
+.form-group {
+	text-align:center;
+}
 /* Search Bar */
 .form-control {
 	width: 50%;
@@ -151,5 +156,9 @@ label {
 	border-radius: 25px;
 	font-size: 30px;
     color: black;
+}
+
+#signOutButton {
+	float: right;
 }
 
