@@ -133,7 +133,7 @@ label {
 }
 
 .btn-primary {
-	display: block;
+	display: inline-block;
 	margin: auto;
 	width: ;
 }
