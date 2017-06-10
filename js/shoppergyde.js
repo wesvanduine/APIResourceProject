@@ -37,10 +37,7 @@ function loginUser() {
     var password = "";
     email = $("#userName").val().trim();
     password = $("#password").val().trim();
-    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-    });
+    
     auth.signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
