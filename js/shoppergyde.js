@@ -47,6 +47,13 @@ function loginUser() {
     
 }
 /////////////////////////////////////////////////////////////////////
+//                           Sign Out User                         //
+/////////////////////////////////////////////////////////////////////
+function logoutUser() {
+    event.preventDefault();
+    auth.signOut();
+}
+/////////////////////////////////////////////////////////////////////
 //                         Search Function                         //
 /////////////////////////////////////////////////////////////////////
 var results;
@@ -91,6 +98,7 @@ function addToCart() {
 /////////////////////////////////////////////////////////////////////
 $(document.body).on("click", "#saveButton", createUser);
 $(document.body).on("click", "#signInButton", loginUser);
+$(document.body).on("click", "#signOutButton", logoutUser);
 $("#searchBar").keypress(function(e) {
     if (e.which == 13) {
         itemSearch();
